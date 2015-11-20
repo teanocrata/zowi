@@ -1,7 +1,7 @@
 <table>
 <tr>
 <td>
-<img src="https://github.com/bq/zowi/blob/master/Zowi_3Dprintable/images/bq-human-right-technology.png" width="400" align="center">
+<img src="https://github.com/bq/zowi/blob/master/Zowi_3Dprintable/images/bq-logo-human-right-technology.png" width="400" align="center">
 </td>
 </tr>
 </table>
