@@ -14,10 +14,10 @@
 #define TRIM_AL -15    //Arm Left
 #define TRIM_H 84      //Head
 
-#define PIN_RR 4
-#define PIN_RL 5
-#define PIN_YR 6
-#define PIN_YL 7
+#define PIN_RR 4 // Foot Right
+#define PIN_RL 5 // Foot Left
+#define PIN_YR 6 // Leg Right
+#define PIN_YL 7 // Leg Left
 #define PIN_SR 2
 #define PIN_SL 8
 #define PIN_AR 3
@@ -43,13 +43,13 @@ void helmet();
 
 void setup(){
 
-    Serial.begin(57600);
+    Serial.begin(9600);
     osc[0].attach(PIN_RR);
     osc[1].attach(PIN_RL);
     osc[2].attach(PIN_YR);
     osc[3].attach(PIN_YL);
-    //osc[4].attach(PIN_SR);
-    //osc[5].attach(PIN_SL);
+    osc[4].attach(PIN_SR);
+    osc[5].attach(PIN_SL);
     osc[6].attach(PIN_AR);
     osc[7].attach(PIN_AL);
     osc[8].attach(PIN_H);
@@ -79,26 +79,38 @@ void loop()
         Serial.println(input);
         switch(input){
             case 'A':
+            case 'a':
+                Serial.println("Walking");
                 walk(1, 750);
                 break;
 
             case 'B':
+            case 'b':
+                Serial.println("Turning Right");
                 turnR(1, 800);
                 break;
 
             case 'C':
+            case 'c':
+                Serial.println("Walking Backward");
                 backward(1, 800);
                 break;
 
             case 'D':
+            case 'd':
+                Serial.println("Turning Left");
                 turnL(1, 800);
                 break;
 
             case 'E':
+            case 'e':
+                Serial.println("Up and Down");
                 upDown();
                 break;
 
             case 'F':
+            case 'f':
+                Serial.println("Punch Right");
                 punchR();
                 delay(250);
                 home();
@@ -106,6 +118,8 @@ void loop()
                 break;
 
             case 'G':
+            case 'g':
+                Serial.println("Attack");
                 attack();
                 delay(250);
                 home();
@@ -113,6 +127,8 @@ void loop()
                 break;
 
             case 'H':
+            case 'h':
+                Serial.println("Punch Left");
                 punchL();
                 delay(250);
                 home();
@@ -120,13 +136,18 @@ void loop()
                 break;
 
             case 'I':
+            case 'i':
+                Serial.println("Helmet");
                 helmet();
                 break;
 
             case 'J':
+            case 'j':
+                Serial.println("Moonwalk Right");
                 break;
 
             default:
+                Serial.println("Home");
                 home();
                 break;
         }
